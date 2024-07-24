@@ -23,6 +23,8 @@ export const StyledQ0 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
   width: 100vw;
   height: 100vh;
   background-color: black;
@@ -47,4 +49,20 @@ export const StyledButton = styled.button`
   color: rgb(89, 21, 39);
   font-family: "giarek";
   font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledLogo = styled.img`
+  width: 55vw;
+  margin-bottom: -15vw;
+  margin-top: -10vw;
+`;
+
+export const StyledTitle = styled.h2`
+  font-family: "giarek";
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 5% 10%;
 `;

@@ -12,5 +12,13 @@ export function Q1() {
     setFade(false);
     setTimeout(() => goToPage(navigate, `/`), 1000);
   };
-  return <StyledQ1 fade={fade} onClick={handleSubmit} />;
+  return (
+    <StyledQ1 fade={fade} onClick={handleSubmit}>
+      {" "}
+      <form>
+        <label />
+        <input />
+      </form>
+    </StyledQ1>
+  );
 }

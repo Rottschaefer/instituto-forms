@@ -6,7 +6,6 @@ function App() {
     <>
       <GlobalStyle />
       <Router />
-      <link rel="preload" href="./assets/flower.jpg" as="image" />
     </>
   );
 }

@@ -1,9 +1,15 @@
-import { StyledButton, StyledLogo, StyledQ0, StyledTitle } from "./StyledQ0";
+import {
+  StyledButton,
+  StyledLogo,
+  StyledQ0,
+  StyledSpan,
+  StyledTitle,
+} from "./StyledQ0";
 import { goToPage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../assets/MP - logo principal - branco.png";
-import nextImg from "../../assets/flower.jpg";
+import nextImg from "../../assets/flower-1.jpg";
 
 export function Q0() {
   const [fade, setFade] = useState(true);
@@ -20,12 +26,13 @@ export function Q0() {
       <StyledQ0 fade={fade}>
         <StyledLogo src={logo} />
         <StyledTitle>
-          Preencha os dados abaixo e finalize sua aplicação para a Mentoria
-          Plena
+          <StyledSpan>Preencha os dados abaixo</StyledSpan> e finalize sua
+          aplicação para a Mentoria Plena
           <br />
           <br />
-          A Dra Irma irá selecionar a dedo quem será aceito (a) e tem o perfil
-          para participar.
+          As candidatas serão
+          <StyledSpan> selecionadas pela própria Dra Irma</StyledSpan> de acordo
+          com o perfil apresentado.
           <br />
           <br />
           Ao ser aprovado (a) na Mentoria iremos entrar em contato no seu

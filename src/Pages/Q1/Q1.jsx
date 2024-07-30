@@ -30,7 +30,7 @@ export function Q1() {
       "irma-mentoria",
       JSON.stringify({ ...localData, Instagram: insta })
     );
-    handleSubmit(e, "/2", navigate, setFade, setError, insta);
+    handleSubmit(e, "/#2", navigate, setFade, setError, insta);
   };
 
   const navigate = useNavigate();

@@ -2,9 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { Q1 } from "../Pages/Q1/Q1";
 import { Q2 } from "../Pages/Q2/Q2";
 import { Q0 } from "../Pages/Q0/Q0_start";
-// import { BasePage } from "../Pages/BasePage/BasePage";
-import flowerImage from "../assets/flower-1.jpg";
-// import fish from "../assets/fish.jpg";
 
 export const Router = () => {
   return (

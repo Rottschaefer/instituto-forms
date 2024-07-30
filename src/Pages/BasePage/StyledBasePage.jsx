@@ -58,7 +58,6 @@ export const StyledForm = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 `;
 
 export const StyledButtonDiv = styled.div`
@@ -88,7 +87,7 @@ const errorAnimation = keyframes`
     opacity: 0;
   }
   to {
-    height: auto;
+    height: 20px;
     opacity: 1;
   }
 `;
@@ -97,8 +96,7 @@ export const StyledErrorMessage = styled.h3`
   font-family: "giarek";
   font-size: 1rem;
   color: rgb(89, 21, 39);
-  height: auto;
-  margin: 20px 0px 20px 0px;
+  margin: 0px;
   animation: ${errorAnimation} 1s ease-in-out forwards;
 `;
 

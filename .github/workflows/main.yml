@@ -1,0 +1,37 @@
+on:
+  push:
+    branches:
+      - master
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: 📂 Build Project
+        env:
+          VITE_GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.VITE_GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+          VITE_GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.VITE_GOOGLE_SERVICE_ACCOUNT_KEY }}
+          VITE_GOOGLE_SHEET_ID: ${{ secrets.VITE_GOOGLE_SHEET_ID }}
+          VITE_ENV: ${{ secrets.VITE_ENV }}
+        run: npm run build
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.drairmarottschaefer.com.br
+          username: mentoria@drairmarottschaefer.com.br
+          password: ${{ secrets.ftp_password }}
+          local-dir: dist/
+          server-dir: /public_html/aplicacao/

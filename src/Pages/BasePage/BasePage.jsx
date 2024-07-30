@@ -9,7 +9,9 @@ import {
 } from "./StyledBasePage";
 
 import flowerImage from "../../assets/flower-1.jpg";
-import fish from "../../assets/fish.jpg";
+import flower3 from "../../assets/flower-3.jpg";
+import fish from "../../assets/flower-2.jpg";
+import fourth from "../../assets/snow-tree.jpg";
 import { useState } from "react";
 import { goToPage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +29,7 @@ export function BasePage() {
   });
   const [error, setError] = useState("");
 
-  const images = [flowerImage, fish, flowerImage];
+  const images = [flowerImage, fish, flower3, fourth];
   const inputNames = ["instagram", "country", "state", "city", "nome"];
   const placeHolders = [
     ["@ do seu instagram"],
@@ -99,12 +101,7 @@ export function BasePage() {
             />
           </>
         ))}
-        {/* <StyledInput
-          name={inputNames[background]}
-          value={info[inputNames[background]]}
-          placeholder={placeHolders[background]}
-          onChange={(e) => handleInputChange(e)}
-        /> */}
+
         {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
         <StyledButtonDiv>
           <StyledButton onClick={(e) => handleGoBack(e)}>Voltar</StyledButton>

@@ -26,7 +26,9 @@ export const StyledQ0 = styled.div`
   flex-direction: column;
 
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 2rem;
   background-color: black;
   background-image: url(${cortina});
   background-size: cover;

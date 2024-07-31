@@ -12,39 +12,15 @@ import {
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
 import clouds from "../../assets/clouds.jpg";
 import { StyledQ2Form } from "./StyledQ2";
-import { doc } from "../../GoogleAuth";
 
 export function Q2() {
   const [fade, setFade] = useState(true);
   const [info, setInfo] = useState({ country: "", state: "", city: "" });
   const [error, setError] = useState("");
 
-  async function addToGoogleSheets() {
-    try {
-      await doc.loadInfo();
-
-      const sheet = doc.sheetsByIndex[1];
-
-      const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
-      await sheet.addRow({
-        Nome: localData.Nome,
-        Email: localData.Email,
-        Telefone: localData.Telefone,
-        Instagram: localData.Instagram,
-        País: info.country,
-        Estado: info.state,
-        Cidade: info.city,
-      });
-    } catch (error) {
-      console.error("Erro ao testar a conexão com o Google Sheets:", error);
-      console.log(error.message);
-    }
-  }
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
-    console.log(info);
   };
 
   const handleQ2Submit = async (e) => {
@@ -63,11 +39,11 @@ export function Q2() {
             city: info.city,
           })
         );
-        await addToGoogleSheets();
+
+        handleSubmit(e, "/3", navigate, setFade, setError, info);
       } catch (error) {
         console.log(error.message);
       }
-      // handleSubmit(e, "/3", navigate, setFade, setError, info);
     }
   };
 

@@ -22,8 +22,8 @@ export function Q0() {
   };
   return (
     <>
-      <link rel="preload" href={nextImg} as="image" />
       <StyledQ0 fade={fade}>
+        <link rel="preload" href={nextImg} as="image" />
         <StyledLogo src={logo} />
         <StyledTitle>
           <StyledSpan>Preencha os dados abaixo</StyledSpan> e finalize sua

@@ -34,10 +34,10 @@ export function Q4() {
 
       const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
       await sheet.addRow({
-        Nome: localData.Nome,
-        Email: localData.Email,
-        Telefone: localData.Telefone,
-        Instagram: localData.Instagram,
+        Nome: localData.name,
+        Email: localData.email,
+        Telefone: localData.phone,
+        Instagram: localData.insta,
         País: localData.country,
         Estado: localData.state,
         Cidade: localData.city,

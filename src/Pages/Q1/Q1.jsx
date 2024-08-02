@@ -79,7 +79,7 @@ export function Q1() {
           const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
           localStorage.setItem(
             "irma-mentoria",
-            JSON.stringify({ ...localData, Instagram: info.insta })
+            JSON.stringify({ ...localData, insta: info.insta })
           );
         }
       }

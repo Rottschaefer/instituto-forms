@@ -13,10 +13,12 @@ import {
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
 import fourth from "../../assets/snow-tree.jpg";
 import { doc } from "../../GoogleAuth";
+import { Loading } from "../../Components/Loading/Loading";
 
 export function Q4() {
   const [fade, setFade] = useState(true);
   const [info, setInfo] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
@@ -55,6 +57,7 @@ export function Q4() {
       if (!info) {
         setError("Preencha todos os campos");
       } else {
+        setIsLoading(true);
         const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
         localStorage.setItem(
           "irma-mentoria",
@@ -68,6 +71,7 @@ export function Q4() {
 
         // setError("Obrigado!");
         handleSubmit(e, "/5", navigate, setFade, setError, info);
+        setIsLoading(false);
       }
     } catch (error) {
       setError(error.message);
@@ -98,8 +102,9 @@ export function Q4() {
           >
             Voltar
           </StyledButton>
+
           <StyledButton onClick={(e) => handleQ5Submit(e)}>
-            Continuar
+            {isLoading ? <Loading /> : "Aplicar"}
           </StyledButton>
         </StyledButtonDiv>
       </StyledForm>

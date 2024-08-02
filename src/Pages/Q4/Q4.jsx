@@ -48,24 +48,29 @@ export function Q4() {
     }
   }
 
-  const handleQ4Submit = async (e) => {
+  const handleQ5Submit = async (e) => {
     e.preventDefault();
-    if (!info) {
-      setError("Preencha todos os campos");
-    } else {
-      const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
-      localStorage.setItem(
-        "irma-mentoria",
-        JSON.stringify({
-          ...localData,
-          interest: info,
-        })
-      );
 
-      await addToGoogleSheets();
+    try {
+      if (!info) {
+        setError("Preencha todos os campos");
+      } else {
+        const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
+        localStorage.setItem(
+          "irma-mentoria",
+          JSON.stringify({
+            ...localData,
+            interest: info,
+          })
+        );
 
-      setError("Obrigado!");
-      // handleSubmit(e, "/4", navigate, setFade, setError, info);
+        await addToGoogleSheets();
+
+        // setError("Obrigado!");
+        handleSubmit(e, "/5", navigate, setFade, setError, info);
+      }
+    } catch (error) {
+      setError(error.message);
     }
   };
 
@@ -93,7 +98,7 @@ export function Q4() {
           >
             Voltar
           </StyledButton>
-          <StyledButton onClick={(e) => handleQ4Submit(e)}>
+          <StyledButton onClick={(e) => handleQ5Submit(e)}>
             Continuar
           </StyledButton>
         </StyledButtonDiv>

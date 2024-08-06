@@ -22,13 +22,23 @@ export function Q1() {
     phone: "",
     insta: "",
   });
-  const [localData, setLocalData] = useState(false);
+  const [localData, setLocalData] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("irma-mentoria"));
-    if (data && !data.show) {
-      setLocalData(true);
+    if (!data || data.show) {
+      setLocalData(false);
+    }
+
+    if (data) {
+      setInfo({
+        ...info,
+        name: data.Nome,
+        email: data.Email,
+        phone: data.Telefone,
+        insta: data.Instagram,
+      });
     }
   }, []);
 
@@ -101,12 +111,14 @@ export function Q1() {
             <StyledLabel>Qual o seu nome?</StyledLabel>
             <StyledInput
               name="name"
+              value={info.name}
               placeholder="Seu nome"
               onChange={(e) => handleInputChange(e)}
             />
             <StyledLabel>Qual o seu email?</StyledLabel>
             <StyledInput
               name="email"
+              value={info.email}
               placeholder="Seu email"
               onChange={(e) => handleInputChange(e)}
             />
@@ -114,6 +126,7 @@ export function Q1() {
             <StyledLabel>Qual o seu whatsapp com DDD?</StyledLabel>
             <StyledInput
               name="phone"
+              value={info.phone}
               placeholder="Seu telefone com DDD"
               onChange={(e) => handleInputChange(e)}
             />
@@ -122,6 +135,7 @@ export function Q1() {
         <StyledLabel>Qual o @ do seu instagram?</StyledLabel>
         <StyledInput
           name="insta"
+          value={info.insta}
           placeholder="Seu @"
           onChange={(e) => handleInputChange(e)}
         />

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyledBasePage,
   StyledButton,
@@ -17,6 +17,19 @@ export function Q2() {
   const [fade, setFade] = useState(true);
   const [info, setInfo] = useState({ country: "", state: "", city: "" });
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("irma-mentoria"));
+
+    if (data) {
+      setInfo({
+        ...info,
+        country: data.country,
+        state: data.state,
+        city: data.city,
+      });
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +53,7 @@ export function Q2() {
           })
         );
 
-        handleSubmit(e, "/3", navigate, setFade, setError, info);
+        handleSubmit(e, "/about", navigate, setFade, setError, info);
       } catch (error) {
         console.log(error.message);
       }

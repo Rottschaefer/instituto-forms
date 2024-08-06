@@ -10,8 +10,8 @@ import {
   StyledLabel,
 } from "../BasePage/StyledBasePage";
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
-import clouds from "../../assets/clouds.jpg";
-import { StyledQ2Form } from "./StyledQ2";
+import background from "../../assets/flowers-4.jpg";
+import { StyledQ2Card, StyledQ2Form, StyledQ2Label } from "./StyledQ2";
 
 export function Q2() {
   const [fade, setFade] = useState(true);
@@ -63,44 +63,49 @@ export function Q2() {
   const navigate = useNavigate();
 
   return (
-    <StyledBasePage fade={fade} imgsrc={clouds}>
+    <StyledBasePage fade={fade} imgsrc={background}>
       {" "}
-      <StyledQ2Form>
-        <StyledLabel>Em que país você mora?</StyledLabel>
-        <StyledInput
-          name="country"
-          value={info.country}
-          placeholder="Coloque aqui seu país"
-          onChange={(e) => handleInputChange(e)}
-        />
-        <StyledLabel>E em qual estado?</StyledLabel>
+      <StyledQ2Card>
+        <StyledQ2Form>
+          <StyledQ2Label>Em que país você mora?</StyledQ2Label>
+          <StyledInput
+            name="country"
+            value={info.country}
+            placeholder="Coloque aqui seu país"
+            onChange={(e) => handleInputChange(e)}
+          />
+          <StyledQ2Label>E em qual estado?</StyledQ2Label>
 
-        <StyledInput
-          name="state"
-          value={info.state}
-          placeholder="E em qual estado?"
-          onChange={(e) => handleInputChange(e)}
-        />
-        <StyledLabel>E sua cidade??</StyledLabel>
+          <StyledInput
+            name="state"
+            value={info.state}
+            placeholder="E em qual estado?"
+            onChange={(e) => handleInputChange(e)}
+          />
+          <StyledQ2Label>E sua cidade??</StyledQ2Label>
 
-        <StyledInput
-          name="city"
-          value={info.city}
-          placeholder="E sua cidade?"
-          onChange={(e) => handleInputChange(e)}
-        />
-        {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
-        <StyledButtonDiv>
-          <StyledButton
-            onClick={(e) => handleGoBack(e, "/1", navigate, setFade, setError)}
-          >
-            Voltar
-          </StyledButton>
-          <StyledButton onClick={(e) => handleQ2Submit(e)}>
-            Continuar
-          </StyledButton>
-        </StyledButtonDiv>
-      </StyledQ2Form>
+          <StyledInput
+            name="city"
+            value={info.city}
+            placeholder="E sua cidade?"
+            onChange={(e) => handleInputChange(e)}
+          />
+          {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
+          <StyledButtonDiv>
+            <StyledButton
+              onClick={(e) =>
+                handleGoBack(e, "/1", navigate, setFade, setError)
+              }
+            >
+              Voltar
+            </StyledButton>
+            <StyledButton onClick={(e) => handleQ2Submit(e)}>
+              Continuar
+            </StyledButton>
+          </StyledButtonDiv>
+        </StyledQ2Form>
+      </StyledQ2Card>
+      {/* </QuesstionCard> */}
     </StyledBasePage>
   );
 }

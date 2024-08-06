@@ -11,9 +11,10 @@ import {
   StyledTextarea,
 } from "../BasePage/StyledBasePage";
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
-import fourth from "../../assets/snow-tree.jpg";
+import background from "../../assets/flowers-6.jpg";
 import { doc } from "../../GoogleAuth";
 import { Loading } from "../../Components/Loading/Loading";
+import { StyledQ4Card, StyledQ4Label } from "./StyledQ4";
 
 export function Q4() {
   const [fade, setFade] = useState(true);
@@ -81,33 +82,37 @@ export function Q4() {
   const navigate = useNavigate();
 
   return (
-    <StyledBasePage fade={fade} imgsrc={fourth}>
+    <StyledBasePage fade={fade} imgsrc={background}>
       {" "}
-      <StyledForm>
-        <StyledLabel>
-          Entre todas as pessoas interessadas, por que eu deveria selecionar
-          você para a mentoria?
-        </StyledLabel>
-        <StyledTextarea
-          name="interest"
-          value={info}
-          placeholder="Sua resposta"
-          onChange={(e) => handleInputChange(e)}
-        />
+      <StyledQ4Card>
+        <StyledForm>
+          <StyledQ4Label>
+            Entre todas as pessoas interessadas, por que eu deveria selecionar
+            você para a mentoria?
+          </StyledQ4Label>
+          <StyledTextarea
+            name="interest"
+            value={info}
+            placeholder="Sua resposta"
+            onChange={(e) => handleInputChange(e)}
+          />
 
-        {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
-        <StyledButtonDiv>
-          <StyledButton
-            onClick={(e) => handleGoBack(e, "/2", navigate, setFade, setError)}
-          >
-            Voltar
-          </StyledButton>
+          {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
+          <StyledButtonDiv>
+            <StyledButton
+              onClick={(e) =>
+                handleGoBack(e, "/2", navigate, setFade, setError)
+              }
+            >
+              Voltar
+            </StyledButton>
 
-          <StyledButton onClick={(e) => handleQ5Submit(e)}>
-            {isLoading ? <Loading /> : "Aplicar"}
-          </StyledButton>
-        </StyledButtonDiv>
-      </StyledForm>
+            <StyledButton onClick={(e) => handleQ5Submit(e)}>
+              {isLoading ? <Loading /> : "Aplicar"}
+            </StyledButton>
+          </StyledButtonDiv>
+        </StyledForm>
+      </StyledQ4Card>
     </StyledBasePage>
   );
 }

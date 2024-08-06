@@ -1,10 +1,10 @@
 import GlobalStyle from "./GlobalStyle";
 import { Router } from "./Routes/Router";
 import nextImg from "./assets/flower-1.jpg";
-import second from "./assets/clouds.jpg";
-import third from "./assets/flower-3.jpg";
-import fourth from "./assets/snow-tree.jpg";
-import sub from "./assets/shape.jpg";
+import second from "./assets/flowers-4.jpg";
+import third from "./assets/flowers-5.jpg";
+import fourth from "./assets/flowers-6.jpg";
+import sub from "./assets/flowers-7.jpg";
 
 function App() {
   return (

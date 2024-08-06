@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyledBasePage,
   StyledButton,
@@ -17,6 +17,14 @@ export function Q3() {
   const [fade, setFade] = useState(true);
   const [info, setInfo] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("irma-mentoria"));
+
+    if (data) {
+      setInfo(data.why);
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const value = e.target.value;

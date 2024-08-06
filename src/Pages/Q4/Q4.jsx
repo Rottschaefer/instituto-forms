@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyledBasePage,
   StyledButton,
@@ -22,6 +22,14 @@ export function Q4() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("irma-mentoria"));
+
+    if (data) {
+      setInfo(data.interest);
+    }
+  }, []);
+
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInfo(value);
@@ -35,13 +43,14 @@ export function Q4() {
 
       const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
       await sheet.addRow({
-        Nome: localData.name,
-        Email: localData.email,
-        Telefone: localData.phone,
-        Instagram: localData.insta,
+        Nome: localData.Nome,
+        Email: localData.Email,
+        Telefone: localData.Telefone,
+        Instagram: localData.Instagram,
         País: localData.country,
         Estado: localData.state,
         Cidade: localData.city,
+        Experiência: localData.experience,
         Motivo: localData.why,
         Interesse: localData.interest,
       });
@@ -101,7 +110,7 @@ export function Q4() {
           <StyledButtonDiv>
             <StyledButton
               onClick={(e) =>
-                handleGoBack(e, "/2", navigate, setFade, setError)
+                handleGoBack(e, "/3", navigate, setFade, setError)
               }
             >
               Voltar

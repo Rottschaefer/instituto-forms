@@ -7,7 +7,6 @@ import {
   StyledErrorMessage,
 } from "../BasePage/StyledBasePage";
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
-import background from "../../assets/shape.jpg";
 import {
   StyledAbout,
   StyledAllOptionDiv,
@@ -17,6 +16,8 @@ import {
   StyledOlTitle,
   StyledOptionDiv,
   StyledLabel,
+  StyledSpan,
+  StyledGradientDiv,
 } from "./StyledAbout";
 
 export function About() {
@@ -24,19 +25,17 @@ export function About() {
   const [info, setInfo] = useState("");
   const [error, setError] = useState("");
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInfo(value);
+  const handleInputChange = (id) => {
+    setInfo(optionsDescriptions[id]);
   };
 
-  const handleQ5Submit = async (e) => {
+  const handleNextButton = async (e) => {
     e.preventDefault();
 
     try {
       if (!info) {
-        setError("Preencha todos os campos");
+        setError("Escolha uma opção");
       } else {
-        setIsLoading(true);
         const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
         localStorage.setItem(
           "irma-mentoria",
@@ -47,7 +46,6 @@ export function About() {
         );
 
         handleSubmit(e, "/3", navigate, setFade, setError, info);
-        setIsLoading(false);
       }
     } catch (error) {
       setError(error.message);
@@ -63,8 +61,8 @@ export function About() {
 
   const OptionsComponent = optionsDescriptions.map((obj, id) => {
     return (
-      <StyledOptionDiv key={id}>
-        <StyledCheckbox type="checkbox" />
+      <StyledOptionDiv key={id} onClick={() => handleInputChange(id)}>
+        <StyledCheckbox type="radio" checked={info === obj} />
         <StyledLabel>{obj}</StyledLabel>
       </StyledOptionDiv>
     );
@@ -72,63 +70,76 @@ export function About() {
   const navigate = useNavigate();
 
   return (
-    <StyledAbout fade={fade} imgsrc={background}>
+    <StyledAbout fade={fade}>
       {" "}
       <StyledDescription>
-        A Mentoria Plena em Odontopediatria é o meu programa de acompanhamento
-        que tem como objetivo te conduzir à conquista de segurança no
-        diagnóstico, procedimentos cirúrgicos e tratamento das alterações dos
-        freios orais.
+        A <StyledSpan>Mentoria Plena em Odontopediatria</StyledSpan> é o meu
+        programa de acompanhamento que tem como objetivo te conduzir à conquista
+        de{" "}
+        <StyledSpan>
+          segurança no diagnóstico, procedimentos cirúrgicos e tratamento das
+          alterações dos freios orais
+        </StyledSpan>
+        .
         <br />
         <br />
         Desde o primeiro contato do cliente, passando pela capacitação do time
         que trabalha com você, divulgação e relacionamento com os demais
         profissionais que atuam na região… planejamento estratégico sem esquecer
-        que somos mulheres além de profissionais e por isso, trazemos também
-        sobre empoderamento e gestão do tempo
+        que <StyledSpan>somos mulheres além de profissionais</StyledSpan> e por
+        isso, trazemos também sobre empoderamento e gestão do tempo
         <br />
         <br />
-        Estes são os motivos porque o nome é Plena!!!
+        Estes são os motivos porque o nome é <StyledSpan>Plena</StyledSpan>!!!
       </StyledDescription>
-      <StyledOlTitle>A MENTORIA PLENA É COMPOSTA POR 5 PILARES:</StyledOlTitle>
-      <StyledOl>
-        <li>
-          {" "}
-          Diagnóstico assertivo: quando indicar e quando não indicar à cirurgia,
-          como fazer um diagnóstico com segurança e muito mais
-        </li>
-        <li>
-          Cirurgia: como executar com precisão, até onde ir no procedimento, pós
-          operatório como conduzir o passo a passo para ter ótimos resultados e
-          muito mais
-        </li>
-        <li>Pós operatório: O que analisar no pós operatório</li>
-        <li>
-          Tratamento interdisciplinar: em que momento indicar para cada
-          profissional e qual atuação dos outros profissionais da equipe, como
-          conduzir o tratamento dos freios e gerar segurança na família
-        </li>
-        <li>
-          {" "}
-          Percepção de valor: como conduzir o atendimento no passo a passo para
-          gerar maior posicionamento e percepção de valor nos pacientes e passar
-          a faturar mais
-        </li>
-      </StyledOl>
-      {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
-      <StyledOlTitle>Me conte sobre sua experiência: </StyledOlTitle>
-      <StyledAllOptionDiv>{OptionsComponent}</StyledAllOptionDiv>
-      <StyledButtonDiv>
-        <StyledButton
-          onClick={(e) => handleGoBack(e, "/2", navigate, setFade, setError)}
-        >
-          Voltar
-        </StyledButton>
+      <StyledGradientDiv>
+        <StyledOlTitle>
+          A MENTORIA PLENA É COMPOSTA POR 5 PILARES:
+        </StyledOlTitle>
+        <StyledOl>
+          <li>
+            {" "}
+            Diagnóstico assertivo: quando indicar e quando não indicar à
+            cirurgia, como fazer um diagnóstico com segurança e muito mais
+          </li>
+          <li>
+            Cirurgia: como executar com precisão, até onde ir no procedimento,
+            pós operatório como conduzir o passo a passo para ter ótimos
+            resultados e muito mais
+          </li>
+          <li>Pós operatório: O que analisar no pós operatório</li>
+          <li>
+            Tratamento interdisciplinar: em que momento indicar para cada
+            profissional e qual atuação dos outros profissionais da equipe, como
+            conduzir o tratamento dos freios e gerar segurança na família
+          </li>
+          <li>
+            {" "}
+            Percepção de valor: como conduzir o atendimento no passo a passo
+            para gerar maior posicionamento e percepção de valor nos pacientes e
+            passar a faturar mais
+          </li>
+        </StyledOl>
 
-        <StyledButton onClick={(e) => handleQ5Submit(e)}>
-          {"Continuar"}
-        </StyledButton>
-      </StyledButtonDiv>
+        <StyledOlTitle>Me conte sobre sua experiência: </StyledOlTitle>
+        <StyledAllOptionDiv>{OptionsComponent}</StyledAllOptionDiv>
+        {error && (
+          <StyledErrorMessage style={{ color: "rgb(153, 31, 31)" }}>
+            {error}
+          </StyledErrorMessage>
+        )}
+        <StyledButtonDiv>
+          <StyledButton
+            onClick={(e) => handleGoBack(e, "/2", navigate, setFade, setError)}
+          >
+            Voltar
+          </StyledButton>
+
+          <StyledButton onClick={(e) => handleNextButton(e)}>
+            {"Continuar"}
+          </StyledButton>
+        </StyledButtonDiv>
+      </StyledGradientDiv>
     </StyledAbout>
   );
 }

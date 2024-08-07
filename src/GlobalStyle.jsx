@@ -14,6 +14,11 @@ const GlobalStyle = createGlobalStyle`
     src: local("giarek"), url(${getFontUrl()}) format("truetype");
   }
 
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+
   body {
     margin: 0;
     padding: 0;

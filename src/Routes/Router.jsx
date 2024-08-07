@@ -4,8 +4,10 @@ import { Q2 } from "../Pages/Q2/Q2";
 import { Q0 } from "../Pages/Q0/Q0_start";
 import { Q3 } from "../Pages/Q3/Q3";
 import { Q4 } from "../Pages/Q4/Q4";
-import { Q5 } from "../Pages/Q5/Q5";
+import { FormsEnd } from "../Pages/FormsEnd/FormsEnd";
 import { About } from "../Pages/About/About";
+import { AboutPrices } from "../Pages/AboutPrices/AboutPrices";
+import { Q5 } from "../Pages/Q5/Q5";
 
 export const Router = () => {
   return (
@@ -16,7 +18,9 @@ export const Router = () => {
       <Route path="about" element={<About />} />
       <Route path="3" element={<Q3 />} />
       <Route path="4" element={<Q4 />} />
+      <Route path="about-2" element={<AboutPrices />} />
       <Route path="5" element={<Q5 />} />
+      <Route path="thank-you" element={<FormsEnd />} />
     </Routes>
   );
 };

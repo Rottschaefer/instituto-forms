@@ -9,21 +9,51 @@ export const StyledAbout = styled(StyledBasePage)`
   text-align: center;
   color: rgb(89, 21, 39);
   padding: 2rem 0rem 0rem 0rem;
-  background-color: #591527;
+  background-color: rgb(30, 12, 12);
   height: auto;
-  border-left: 10px solid white;
-  border-top: 10px solid white;
+  border: 10px solid white;
+  margin: 0;
+
+  /* border-top: 10px solid white;s */
+  /* margin-right: -10px; */
 `;
 
-export const StyledDescription = styled.h2`
-  font-size: 1.2rem;
+export const StyledOl = styled.ol`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`;
+
+export const StyledOlOption = styled.li`
+  font-family: "giarek";
+
+  font-size: 1.1rem;
   text-align: left;
-  margin: 0rem 3rem 0rem 2rem;
+  margin: 0rem 3rem 0rem 0rem;
+  color: #f3b6b6;
+
+  list-style: upper-roman;
+`;
+
+export const StyledUlOption = styled.li`
+  font-family: "montserrat";
+
+  font-size: 1.1rem;
+  text-align: left;
   color: white;
 `;
 
+export const StyledUl = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`;
+
 export const StyledSpan = styled.span`
-  font-family: "giarek";
   position: relative;
   font-weight: 900;
   font-size: 107%;
@@ -34,38 +64,28 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledGradientDiv = styled.div`
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 0rem 1rem 3rem 0rem;
-  background: linear-gradient(180deg, rgb(89, 21, 39), rgb(30, 12, 12));
+  padding-bottom: 3rem;
+  background: linear-gradient(180deg, rgb(30, 12, 12), rgb(89, 21, 39));
   color: white;
+  border-left: 10px solid white;
+  border-right: 10px solid white;
 `;
 
-export const StyledOlTitle = styled.h3`
+export const StyledTitle = styled.h2`
   font-family: "giarek";
   text-align: center;
-  margin: 2rem 2rem;
+  margin: 0;
   background: linear-gradient(135deg, #f3b6b6, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-`;
-
-export const StyledOl = styled.ol`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-
-  text-align: center;
-  font-size: 1.2rem;
-  margin: 0rem 2rem 0rem 1rem;
-  color: white;
 `;
 
 export const StyledCheckbox = styled.input`

@@ -7,19 +7,16 @@ import {
   StyledButtonDiv,
   StyledErrorMessage,
   StyledForm,
-  StyledLabel,
   StyledTextarea,
 } from "../BasePage/StyledBasePage";
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
 import background from "../../assets/flowers-6.jpg";
-import { doc } from "../../GoogleAuth";
-import { Loading } from "../../Components/Loading/Loading";
+
 import { StyledQ4Card, StyledQ4Label } from "./StyledQ4";
 
 export function Q4() {
   const [fade, setFade] = useState(true);
   const [info, setInfo] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -35,31 +32,6 @@ export function Q4() {
     setInfo(value);
   };
 
-  async function addToGoogleSheets() {
-    try {
-      await doc.loadInfo();
-
-      const sheet = doc.sheetsByIndex[1];
-
-      const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
-      await sheet.addRow({
-        Nome: localData.Nome,
-        Email: localData.Email,
-        Telefone: localData.Telefone,
-        Instagram: localData.Instagram,
-        País: localData.country,
-        Estado: localData.state,
-        Cidade: localData.city,
-        Experiência: localData.experience,
-        Motivo: localData.why,
-        Interesse: localData.interest,
-      });
-    } catch (error) {
-      console.error("Erro ao testar a conexão com o Google Sheets:", error);
-      console.log(error.message);
-    }
-  }
-
   const handleQ5Submit = async (e) => {
     e.preventDefault();
 
@@ -67,7 +39,6 @@ export function Q4() {
       if (!info) {
         setError("Preencha todos os campos");
       } else {
-        setIsLoading(true);
         const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
         localStorage.setItem(
           "irma-mentoria",
@@ -77,11 +48,7 @@ export function Q4() {
           })
         );
 
-        await addToGoogleSheets();
-
-        // setError("Obrigado!");
-        handleSubmit(e, "/5", navigate, setFade, setError, info);
-        setIsLoading(false);
+        handleSubmit(e, "/about-2", navigate, setFade, setError, info);
       }
     } catch (error) {
       setError(error.message);
@@ -117,7 +84,7 @@ export function Q4() {
             </StyledButton>
 
             <StyledButton onClick={(e) => handleQ5Submit(e)}>
-              {isLoading ? <Loading /> : "Aplicar"}
+              Continuar
             </StyledButton>
           </StyledButtonDiv>
         </StyledForm>

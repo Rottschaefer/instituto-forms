@@ -35,10 +35,10 @@ export function Q1() {
     if (data) {
       setInfo({
         ...info,
-        name: data.Nome,
-        email: data.Email,
-        phone: data.Telefone,
-        insta: data.Instagram,
+        name: data.name,
+        email: data.email,
+        phone: data.telefone,
+        insta: data.insta,
       });
     }
   }, []);
@@ -76,10 +76,10 @@ export function Q1() {
         localStorage.setItem(
           "irma-mentoria",
           JSON.stringify({
-            Nome: info.name,
-            Email: info.email,
-            Telefone: info.phone,
-            Instagram: info.insta,
+            name: info.name,
+            email: info.email,
+            phone: info.phone,
+            insta: info.insta,
             show: true,
           })
         );

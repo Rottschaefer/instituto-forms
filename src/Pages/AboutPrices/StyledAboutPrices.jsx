@@ -41,7 +41,7 @@ export const StyledUlOption = styled.li`
   font-family: "montserrat";
 
   font-size: 1.1rem;
-  text-align: left;
+  text-align: justify;
   color: white;
 `;
 
@@ -49,7 +49,7 @@ export const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   gap: 2rem;
 `;
 
@@ -80,7 +80,7 @@ export const StyledGradientDiv = styled.div`
 export const StyledTitle = styled.h2`
   font-family: "giarek";
   text-align: center;
-  margin: 0;
+  margin: 0rem 2rem;
   background: linear-gradient(135deg, #f3b6b6, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

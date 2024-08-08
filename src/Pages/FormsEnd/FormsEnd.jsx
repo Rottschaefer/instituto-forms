@@ -17,7 +17,7 @@ export function FormsEnd() {
           foi finalizada
           <br />
           <br />
-          Entraremos em contato assim que sua aplicação for revisada :)
+          Entraremos em contato assim que sua aplicação for revisada
         </StyledTitle>
       </StyledQ5>
     </>

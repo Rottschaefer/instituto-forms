@@ -59,10 +59,10 @@ export const StyledOl = styled.ol`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   gap: 2rem;
 
-  text-align: center;
+  text-align: left;
   font-size: 1.2rem;
   margin: 0rem 2rem 0rem 1rem;
   color: white;

@@ -74,10 +74,10 @@ export function AboutPrices() {
       <StyledTitle>A Mentoria Plena tem dois modelos: </StyledTitle>
       <StyledOl>
         <StyledOlOption>
-          Online:{" "}
+          ONLINE:{" "}
           <StyledUl>
             <StyledUlOption>
-              Assim que realiza a matricula você tem acesso à plataforma de
+              Assim que realiza a matrícula você tem acesso à plataforma de
               aulas com todo método Anquiloglossia em Foco ( MAF ) com 5 pilares
               com aulas, dezenas de videos de cirurgias, além de todos os
               materiais para copiar e colar e acervo de artigos.
@@ -87,10 +87,11 @@ export function AboutPrices() {
               dúvida com a Dra Irma e seu time.{" "}
             </StyledUlOption>
             <StyledUlOption>
-              Você terá 6 meses de acompanhamento online pelo zoom quinzenal com
-              a Dra Irma e seu time para direcionamento , feedbacks e discussões
-              de casos.
+              Você terá 6 meses de acompanhamento online pelo zoom duas vezes ao
+              mês com a Dra Irma e seu time para direcionamento, feedbacks e
+              discussões de casos.
             </StyledUlOption>
+            <StyledUlOption>Investimento: R$15.000,00</StyledUlOption>
           </StyledUl>
         </StyledOlOption>
         <StyledOlOption>
@@ -98,10 +99,11 @@ export function AboutPrices() {
           <StyledUl>
             <StyledUlOption>Toda a experiência online acima +</StyledUlOption>
             <StyledUlOption>
-              3 dias presenciais com até 2 alunas em Niterói para prática de
+              3 dias presenciais com até 2 alunas em Niterói-RJ para prática de
               cirurgias, passo a passo dos atendimentos, gestão de clínica,
               centro cirúrgico e muito mais
             </StyledUlOption>
+            <StyledUlOption>Investimento: R$25.000,00</StyledUlOption>
           </StyledUl>
         </StyledOlOption>
       </StyledOl>

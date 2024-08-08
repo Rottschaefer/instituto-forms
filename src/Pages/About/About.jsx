@@ -87,7 +87,7 @@ export function About() {
         que trabalha com você, divulgação e relacionamento com os demais
         profissionais que atuam na região… planejamento estratégico sem esquecer
         que <StyledSpan>somos mulheres além de profissionais</StyledSpan> e por
-        isso, trazemos também sobre empoderamento e gestão do tempo
+        isso trazemos conteúdo também sobre empoderamento e gestão do tempo
         <br />
         <br />
         Estes são os motivos porque o nome é <StyledSpan>Plena</StyledSpan>!!!

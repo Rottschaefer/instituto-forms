@@ -34,4 +34,4 @@ jobs:
           username: mentoria@drairmarottschaefer.com.br
           password: ${{ secrets.ftp_password }}
           local-dir: dist/
-          server-dir: /public_html/webtest/
+          server-dir: /public_html/aplicacao/

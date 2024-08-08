@@ -43,7 +43,7 @@ export const StyledInput = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 102%;
+  width: 80%;
   height: 2rem;
   position: relative;
   border: none;
@@ -55,14 +55,15 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledTextarea = styled.textarea`
+  height: 7rem;
+  width: 80%;
   font-size: 1rem;
   font-weight: 800;
   padding-left: 10px;
   font-family: "giarek";
-  height: 7rem;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   resize: none;
 `;
 
@@ -70,10 +71,16 @@ export const StyledForm = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
 `;
 
 export const StyledButtonDiv = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 `;
 
@@ -114,9 +121,11 @@ export const StyledErrorMessage = styled.h3`
 
 export const StyledLabel = styled.label`
   display: block;
-  max-width: 80vw;
+  width: 80%;
   font-family: "giarek";
   font-weight: bold;
   font-size: 1.5rem;
+  text-align: center;
+
   color: rgb(89, 21, 39);
 `;

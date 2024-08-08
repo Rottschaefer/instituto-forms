@@ -11,8 +11,9 @@ import {
   StyledLabel,
 } from "../BasePage/StyledBasePage";
 import { handleGoBack, handleSubmit } from "../BasePage/functions";
-import flower from "../../assets/flower-1.jpg";
+import background from "../../assets/flowers-5.jpg";
 import sub from "../../assets/shape.jpg";
+import { StyledQ1Card } from "./StyledQ1";
 
 export function Q1() {
   const [fade, setFade] = useState(true);
@@ -22,13 +23,23 @@ export function Q1() {
     phone: "",
     insta: "",
   });
-  const [localData, setLocalData] = useState(false);
+  const [localData, setLocalData] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("irma-mentoria"));
-    if (data && !data.show) {
-      setLocalData(true);
+    if (!data || data.show) {
+      setLocalData(false);
+    }
+
+    if (data) {
+      setInfo({
+        ...info,
+        name: data.name,
+        email: data.email,
+        phone: data.telefone,
+        insta: data.insta,
+      });
     }
   }, []);
 
@@ -65,10 +76,10 @@ export function Q1() {
         localStorage.setItem(
           "irma-mentoria",
           JSON.stringify({
-            Nome: info.name,
-            Email: info.email,
-            Telefone: info.phone,
-            Instagram: info.insta,
+            name: info.name,
+            email: info.email,
+            phone: info.phone,
+            insta: info.insta,
             show: true,
           })
         );
@@ -93,50 +104,56 @@ export function Q1() {
   const navigate = useNavigate();
 
   return (
-    <StyledBasePage fade={fade} imgsrc={localData ? flower : sub}>
+    <StyledBasePage fade={fade} imgsrc={background}>
       {" "}
-      <StyledForm>
-        {!localData && (
-          <>
-            <StyledLabel>Qual o seu nome?</StyledLabel>
-            <StyledInput
-              name="name"
-              placeholder="Seu nome"
-              onChange={(e) => handleInputChange(e)}
-            />
-            <StyledLabel>Qual o seu email?</StyledLabel>
-            <StyledInput
-              name="email"
-              placeholder="Seu email"
-              onChange={(e) => handleInputChange(e)}
-            />
+      <StyledQ1Card>
+        <StyledForm>
+          {!localData && (
+            <>
+              <StyledLabel>Qual o seu nome?</StyledLabel>
+              <StyledInput
+                name="name"
+                value={info.name}
+                placeholder="Seu nome"
+                onChange={(e) => handleInputChange(e)}
+              />
+              <StyledLabel>Qual o seu email?</StyledLabel>
+              <StyledInput
+                name="email"
+                value={info.email}
+                placeholder="Seu email"
+                onChange={(e) => handleInputChange(e)}
+              />
 
-            <StyledLabel>Qual o seu whatsapp com DDD?</StyledLabel>
-            <StyledInput
-              name="phone"
-              placeholder="Seu telefone com DDD"
-              onChange={(e) => handleInputChange(e)}
-            />
-          </>
-        )}
-        <StyledLabel>Qual o @ do seu instagram?</StyledLabel>
-        <StyledInput
-          name="insta"
-          placeholder="Seu @"
-          onChange={(e) => handleInputChange(e)}
-        />
-        {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
-        <StyledButtonDiv>
-          <StyledButton
-            onClick={(e) => handleGoBack(e, "/", navigate, setFade, setError)}
-          >
-            Voltar
-          </StyledButton>
-          <StyledButton onClick={(e) => handleSubmitQ1(e)}>
-            Continuar
-          </StyledButton>
-        </StyledButtonDiv>
-      </StyledForm>
+              <StyledLabel>Qual o seu whatsapp com DDD?</StyledLabel>
+              <StyledInput
+                name="phone"
+                value={info.phone}
+                placeholder="Seu telefone com DDD"
+                onChange={(e) => handleInputChange(e)}
+              />
+            </>
+          )}
+          <StyledLabel>Qual o @ do seu instagram?</StyledLabel>
+          <StyledInput
+            name="insta"
+            value={info.insta}
+            placeholder="Seu @"
+            onChange={(e) => handleInputChange(e)}
+          />
+          {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
+          <StyledButtonDiv>
+            <StyledButton
+              onClick={(e) => handleGoBack(e, "/", navigate, setFade, setError)}
+            >
+              Voltar
+            </StyledButton>
+            <StyledButton onClick={(e) => handleSubmitQ1(e)}>
+              Continuar
+            </StyledButton>
+          </StyledButtonDiv>
+        </StyledForm>
+      </StyledQ1Card>
     </StyledBasePage>
   );
 }

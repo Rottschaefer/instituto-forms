@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import flower from "../../assets/flower-1.jpg";
+import { StyledQuestionCard } from "../../Components/QuestionCard/StyledQuestionCard";
 
 const fadeIn = keyframes`
 0%{
@@ -34,6 +35,10 @@ export const StyledQ1 = styled.div`
 
   animation: ${(props) => (props.fade ? fadeIn : fadeOut)} 1s ease-in-out
     forwards;
+`;
+
+export const StyledQ1Card = styled(StyledQuestionCard)`
+  background-color: rgb(191 170 174 / 70%);
 `;
 
 export const StyledInput = styled.input`

@@ -1,11 +1,11 @@
 on:
   push:
     branches:
-      - master
+      - AddingCheckboxesPages
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: Test Deploy
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
@@ -34,4 +34,4 @@ jobs:
           username: mentoria@drairmarottschaefer.com.br
           password: ${{ secrets.ftp_password }}
           local-dir: dist/
-          server-dir: /public_html/aplicacao/
+          server-dir: /public_html/webtest/

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AiOutlineLoading } from "react-icons/ai";
 
 export const StyledLoading = styled(AiOutlineLoading)`
-  width: 30%;
+  width: 50%;
   height: auto;
   color: #591527;
   animation: rotate infinite 1s linear;

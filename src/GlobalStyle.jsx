@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
 
 
   body {
+color: white;
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;

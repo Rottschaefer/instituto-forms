@@ -22,14 +22,6 @@ export function Q5() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const data = JSON.parse(localStorage.getItem("irma-mentoria"));
-
-  //   if (data) {
-  //     setInfo(data.interest);
-  //   }
-  // }, []);
-
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInfo(value);
@@ -41,6 +33,9 @@ export function Q5() {
       const sheet = doc.sheetsByIndex[1];
 
       const localData = JSON.parse(localStorage.getItem("irma-mentoria"));
+
+      const date = new Date();
+
       await sheet.addRow({
         nome: localData.name,
         email: localData.email,
@@ -54,6 +49,9 @@ export function Q5() {
         interesse: localData.interest,
         opcao: localData.option,
         desejo: info,
+        data: `${date.getDate()}/${
+          date.getMonth() + 1
+        }/${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
       });
     } catch (error) {
       console.error("Erro ao testar a conexão com o Google Sheets:", error);

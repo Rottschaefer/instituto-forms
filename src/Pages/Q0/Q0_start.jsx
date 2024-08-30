@@ -30,6 +30,10 @@ export function Q0() {
           aplicação para a Mentoria Plena
           <br />
           <br />
+          São <StyledSpan>7 perguntas</StyledSpan> a serem respondidas em, em
+          média, <StyledSpan>5 minutos</StyledSpan>
+          <br />
+          <br />
           As candidatas serão
           <StyledSpan> selecionadas pela própria Dra Irma</StyledSpan> de acordo
           com o perfil apresentado.

@@ -91,7 +91,7 @@ export function AboutPrices() {
               mês com a Dra Irma e seu time para direcionamento, feedbacks e
               discussões de casos.
             </StyledUlOption>
-            <StyledUlOption>Investimento: R$15.000,00</StyledUlOption>
+            {/* <StyledUlOption>Investimento: R$15.000,00</StyledUlOption> */}
           </StyledUl>
         </StyledOlOption>
         <StyledOlOption>
@@ -103,7 +103,7 @@ export function AboutPrices() {
               cirurgias, passo a passo dos atendimentos, gestão de clínica,
               centro cirúrgico e muito mais
             </StyledUlOption>
-            <StyledUlOption>Investimento: R$25.000,00</StyledUlOption>
+            {/* <StyledUlOption>Investimento: R$25.000,00</StyledUlOption> */}
           </StyledUl>
         </StyledOlOption>
       </StyledOl>
